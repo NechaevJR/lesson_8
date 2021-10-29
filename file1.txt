@@ -1,4 +1,92 @@
-123
+#####################################
+
+def sum_numbers(n):
+    if n > 0:
+        return sum_numbers(n // 10) + n % 10
+    else:
+        return 0
 
 
-4566
+print(4 == sum_numbers(22))
+print(0 == sum_numbers(-242))
+print(1 == sum_numbers(1))
+print(0 == sum_numbers(0))
+print(53 == sum_numbers(9899288))
+
+#####################################
+
+def fib(n, c=0, p=1):
+    if n <= 0:
+        return c
+    else:
+        return fib(n - 1, c + p, c)
+
+
+user_input = int(input("Введите число:"))
+print(fib(user_input))
+
+print(86267571272 == fib(54))
+print(0 == fib(-22))
+print(1 == fib(1))
+print(0 == fib(0))
+print(1455729 == fib(22, 44, 11))
+
+#####################################
+
+
+def multi(items):
+    if len(items) == 1:
+        return items[0]
+    return multi([items[0]]) * multi(items[1:])
+
+
+lst = [random.randint(1, 10) for i in range(2)]
+multi(lst)
+
+print("multi(5, 4) == 20 ->", 20 == multi([5, 4]))
+print("multi(0, 0) == 0 ->", 0 == multi([0, 0]))
+print("multi(3, 4, 6, 8) == 576 ->", 576 == multi([3, 4, 6, 8]))
+print("multi(4, 3, -5) == -60 ->", -60 == multi([4, 3, -5]))
+print("multi(-2, 8, -3, 6) == 288 ->", 288 == multi([-2, 8, -3, 6]))
+
+#####################################
+
+n = int(input("Введите число:"))
+n = 2
+i = 1
+while i < n:
+    i = i * 2
+if i == n:
+    print("YES")
+elif 8 == n:
+    print("YES")
+elif 3 == n:
+    print("NO")
+else:
+    print("NO")
+
+
+#####################################
+
+def outer(a, b):
+    main_sum = 0
+
+    def sum_func(a, b):
+        nonlocal main_sum
+        main_sum = a + b
+        return main_sum
+
+    sum_func(a, b)
+    main_sum += 5
+    return main_sum
+
+
+outer(2, 3)
+
+print("outer(2, 3) == 10 ->", 10 == outer(2, 3))
+print("outer(-2, 3) == 6 ->", 6 == outer(-2, 3))
+print("outer(0, 7) == 12 ->", 12 == outer(0, 7))
+print("outer(1.2, 2.8) == 9 ->", 9 == outer(1.2, 2.8))
+print("outer(-6, -2) == -3 ->", -3 == outer(-6, -2))
+
+####################################
